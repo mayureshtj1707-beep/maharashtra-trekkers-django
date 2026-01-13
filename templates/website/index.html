@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block title %} Home {% endblock %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center"
+     style="height: 90vh;">
+
+    <div class="text-center p-5 rounded-4 bg-white"
+         style="max-width: 720px;">
+
+        
+        <h1 class="fw-bold mb-3 display-5">
+            🏞️ Maharashtra Trekkers
+        </h1>
+        
+        <p class="text-success fw-semibold mb-2">
+            Explore • Discover • Trek
+        </p>
+    
+        <p class="text-muted fs-5 mb-4">
+            Discover famous trekking destinations, forts, and scenic routes
+            across Maharashtra — all district wise.
+        </p>
+
+        
+        <div class="d-flex justify-content-center gap-3">
+            <a href="{% url 'login_page' %}"
+               class="btn btn-success btn-lg px-5">
+                Login to Explore Map 🗺️
+            </a>
+        </div>
+
+        <p class="small text-muted mt-4">
+            🔐 Secure login required to view the interactive trekking map
+        </p>
+
+    </div>
+
+</div>
+{% endblock %}

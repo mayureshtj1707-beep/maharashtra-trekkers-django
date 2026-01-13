@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block title %}all treaks {% endblock %}
+
+
+{% block content %}
+<div class="container mb-5 mt-5" >
+<h1 class="text-center fw-bolder" style="font-size: 3.0vw">{{ district }} Treks</h1>
+<div class="row">
+    {% for trek in treks %}
+    <div class="col-md-4">
+        <div class="card" style="margin-bottom: 20px;">
+            <img src="{{ trek.image.url }}" class="card-img-top" style="height: 300px; object-fit: cover;">
+            <div class="card-body">
+                <h5 class="card-title">Title:{{trek.title}}</h5>
+                <p><strong>Height:</strong> {{ trek.height }} ft</p>
+                <p><strong>Difficulty:</strong> {{ trek.difficulty }}</p>
+
+                <a href="/trek/{{ trek.id }}/" class="btn btn-primary">View Details</a>
+                <a href="/trek/book/{{ trek.id }}/" class="btn btn-success">Book Now</a>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <p>No treks found in {{ district }}</p>
+    {% endfor %}
+</div>
+
+</div>
+
+{% endblock  %}
+

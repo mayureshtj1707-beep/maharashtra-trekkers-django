@@ -1,0 +1,113 @@
+{% load static %}
+
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}no title {% endblock %}</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <style>
+    body {
+      background-color: rgb(85, 135, 85);
+    }
+
+    .custom-teal {
+      background-color: teal !important;
+    }
+
+     .footer {
+      background-color: rgba(135, 85, 123, 1) !important;
+      
+       padding: 15px;
+
+      @media (min-width: 992px) {
+
+        /* Laptop size and above */
+        .nav-gap {
+          margin-left: 200px;
+          margin-right: 200px;
+        }
+      }
+      
+    }
+
+
+    .navbar {
+      padding: 15px;
+
+      @media (min-width: 992px) {
+
+        /* Laptop size and above */
+        .nav-gap {
+          margin-left: 200px;
+          margin-right: 200px;
+        }
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg custom-teal mx-md-5 ">
+    <div class="container">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url "home" %}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Pricing</a>
+          </li>
+        </ul>
+        <span class="navbar-text d-flex gap-2">
+        
+        {% if user.is_authenticated %}
+          <a class="btn btn-outline-danger"href="{% url "logout_page" %}">Logot</a>
+        {% else %}
+          <a class="btn btn-outline-success"href="{% url "register_page" %}">Sign in</a>
+          <a class="btn btn-outline-warning"href="{% url "login_page" %}">Login in</a>
+        {% endif %}
+          
+      </span>
+      </div>
+    </div>
+  </nav>
+
+
+
+
+
+    {% block content %} no content {% endblock %}
+ <footer class="bg-dark text-white pt-5 pb-2 " style=" display: flex; align-items: center; justify-content: center;" class="pt-5 pb-4 custom-footer mx-md-5">
+        <div class="container text-center text-md-left">
+            <div class="row text-center text-md-left">
+                <!-- Footer columns with content like links, text, and copyright -->
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-12 text-center">
+                    <p class="mb-0">&copy; 2025 Mayuresh Jagtap. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

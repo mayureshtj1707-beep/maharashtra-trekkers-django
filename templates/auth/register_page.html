@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+
+<div>
+
+    <div class="card p-4 m-5 w-50 mx-auto">
+    <h1 class="display-3 text-center mb-5">Register Form</h1>
+    
+    {% if messages %}
+        <div>
+
+            {% for msg in messages %}
+                <div class="alert alert-danger">
+                    {{msg}}
+                </div>
+            
+            {% endfor %}
+        </div>
+    {% endif %}
+        
+    <form class="d-flex gap-2 flex-column" method="POST">
+        {% csrf_token %}
+        <input class="from-control" name="username" type="text" placeholder="enter username">
+        <input class="from-control" name="email" type="email" placeholder="enter emil">
+        <input class="from-control" name="password" type="password" placeholder="enter password">
+        <input class="from-control" name="confirmed_password" type="password" placeholder="enter confirmed_password">
+        <button type="submit" class="btn btn-sm btn-primary w-100">Register</button>
+
+    </form>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block title %}all treaks {% endblock %}
+
+
+{% block content %}
+<div class="container mb-5 mt-5" >
+
+<h2 class="text-center fw-bolder" style="font-size: 2.0vw">Book Trek: {{ trek.title }}</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Confirm Booking</button>
+</form>
+
+</div>
+
+{% endblock  %}
+
+
+
